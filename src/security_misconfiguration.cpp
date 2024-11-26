@@ -1,7 +1,7 @@
 #include <iostream>
 #include "security_misconfiguration.h"
 
-void securityMisconfiguration Example() {
+void securityMisconfigurationExample() {
     std::cout << "Warning: Default credentials are being used!" << std::endl;
     std::cout << "Username: admin" << std::endl;
     std::cout << "Password: admin123" << std::endl; // Exposing default credentials
