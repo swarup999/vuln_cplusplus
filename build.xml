@@ -1,0 +1,33 @@
+<project name="Vulnerable C++ Project" default="run" basedir=".">
+    <property name="src.dir" value="src"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="build.dir" value="build"/>
+    <property name="bin.dir" value="bin"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${bin.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${bin.dir}"/>
+        
+        <!-- Compile the source files -->
+        <g++ srcdir="${src.dir}" destdir="${build.dir}">
+            <fileset dir="${src.dir}">
+                <include name="*.cpp"/>
+            </fileset>
+            <include name="*.h"/>
+            <include name="${lib.dir}/*.cpp"/> <!-- Include the vulnerable library -->
+        </g++>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="main" fork="true" dir="${bin.dir}">
+            <classpath>
+                <pathelement path="${build.dir}"/>
+            </classpath>
+        </java>
+    </target>
+</project>
