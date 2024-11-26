@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstring>
+#include "buffer_overflow.h"
 
 void bufferOverflowExample() {
     char buffer[10];
