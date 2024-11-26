@@ -1,0 +1,6 @@
+#ifndef SECURITY_MISCONFIGURATION_H
+#define SECURITY_MISCONFIGURATION_H
+
+void securityMisconfigurationExample();
+
+#endif // SECURITY_MISCONFIGURATION_H
