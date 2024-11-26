@@ -1,7 +1,7 @@
 #include <iostream>
-#include "sql_injection.cpp"
-#include "buffer_overflow.cpp"
-#include "cross_site_scripting.cpp"
+#include "buffer_overflow.h"
+#include "sql_injection.h"
+#include "cross_site_scripting.h"
 #include "vulnerable_lib.h" // Include the vulnerable library
 
 int main() {
