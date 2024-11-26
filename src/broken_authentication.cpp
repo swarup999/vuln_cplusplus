@@ -1,10 +1,20 @@
 #include <iostream>
+#include <string>
+#include "broken_authentication.h"
 
 void brokenAuthenticationExample() {
     std::string username;
-    std::cout << "Enter username: ";
-    std::getline(std::cin, username);
+    std::string password;
     
-    // Simulated authentication check (not secure)
-    std::cout << "Authenticated user: " << username << std::endl;
+    std::cout << "Enter username: ";
+    std::cin >> username;
+    std::cout << "Enter password: ";
+    std::cin >> password;
+
+    // Simulated authentication logic (vulnerable)
+    if (username == "admin" && password == "password") {
+        std::cout << "Authenticated as admin!" << std::endl;
+    } else {
+        std::cout << "Authentication failed!" << std::endl;
+    }
 }
