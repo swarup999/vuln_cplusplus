@@ -1,4 +1,5 @@
 #include <iostream>
+#include "cross_site_scripting.h"
 
 void crossSiteScriptingExample() {
     std::string userInput;
