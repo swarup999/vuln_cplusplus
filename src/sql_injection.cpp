@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include "sql_injection.h"
 
 void sqlInjectionExample() {
     std::string userInput;
