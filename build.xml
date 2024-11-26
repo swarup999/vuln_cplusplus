@@ -13,21 +13,12 @@
         <mkdir dir="${build.dir}"/>
         <mkdir dir="${bin.dir}"/>
         
-        <!-- Compile the source files -->
-        <g++ srcdir="${src.dir}" destdir="${build.dir}">
-            <fileset dir="${src.dir}">
-                <include name="*.cpp"/>
-            </fileset>
-            <include name="*.h"/>
-            <include name="${lib.dir}/*.cpp"/> <!-- Include the vulnerable library -->
-        </g++>
+        <exec executable="g++">
+            <arg line="-o ${bin.dir}/vulnerable_project ${src.dir}/*.cpp ${lib.dir}/*.cpp -I${src.dir} -I${lib.dir}"/>
+        </exec>
     </target>
 
     <target name="run" depends="compile">
-        <java classname="main" fork="true" dir="${bin.dir}">
-            <classpath>
-                <pathelement path="${build.dir}"/>
-            </classpath>
-        </java>
+        <exec executable="${bin.dir}/vulnerable_project"/>
     </target>
 </project>
